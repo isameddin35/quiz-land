@@ -1,15 +1,14 @@
-# Step 1: Use official Java runtime as base image
-FROM eclipse-temurin:17-jdk-alpine
+# Use official Eclipse Temurin Java 21 JDK as base image
+FROM eclipse-temurin:21-jdk-alpine
 
-# Step 2: Set working directory
+# Set working directory inside container
 WORKDIR /app
 
-# Step 3: Copy Gradle or Maven build output jar into container
-COPY build/libs/*.jar app.jar
-# If using Maven, change to: COPY target/*.jar app.jar
+# Copy the jar file from your build directory to container
+COPY build/libs/QuizLand-0.0.1-SNAPSHOT.jar app.jar
 
-# Step 4: Expose the port (Render sets $PORT automatically)
+# Expose the port. Render sets $PORT automatically.
 EXPOSE 8080
 
-# Step 5: Run the jar file
+# Run the jar, letting Spring pick up PORT env var from Render or fallback to 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
