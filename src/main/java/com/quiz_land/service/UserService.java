@@ -16,13 +16,13 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public boolean login(User user) {
-        boolean authenticated = false;
-
-        Optional<User> userOptional = userRepository.findByUsername(user.getUsername());
-
-        if (userOptional.isPresent()) {
-
-        }
-    }
+//    public boolean login(User user) {
+//        boolean authenticated = false;
+//
+//        Optional<User> userOptional = userRepository.findByUsername(user.getUsername());
+//
+//        if (userOptional.isPresent()) {
+//
+//        }
+//    }
 }
