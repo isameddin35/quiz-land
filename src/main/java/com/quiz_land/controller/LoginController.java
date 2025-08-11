@@ -13,7 +13,7 @@ import java.util.List;
 public class LoginController {
     private final LoginRepository loginRepository;
 
-    @GetMapping("users")
+    @GetMapping()
     public List<User> getUsers() {
         return loginRepository.findAll();
     }
