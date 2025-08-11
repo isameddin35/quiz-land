@@ -9,6 +9,9 @@ COPY gradle gradle
 COPY build.gradle .
 COPY settings.gradle .
 
+# Make Gradle wrapper executable
+RUN chmod +x gradlew
+
 # Download dependencies (cached)
 RUN ./gradlew dependencies --no-daemon
 
@@ -26,7 +29,7 @@ WORKDIR /app
 # Copy jar from build stage
 COPY --from=build /app/build/libs/QuizLand-0.0.1-SNAPSHOT.jar app.jar
 
-# Let Render/Heroku/etc. set PORT, fallback to 8080
+# Let platform set PORT, fallback to 8080
 EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
