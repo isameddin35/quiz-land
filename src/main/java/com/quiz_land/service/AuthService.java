@@ -44,7 +44,7 @@ public class AuthService {
 
         userRepository.save(user);
 
-        return new ResponseEntity<>("User registered successfully", HttpStatus.OK);
+        return new ResponseEntity<>("User " + registerDto.getUsername() + "registered successfully", HttpStatus.OK);
 
     }
 
@@ -53,6 +53,6 @@ public class AuthService {
                 new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword())
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return new ResponseEntity<>("User signed in successfully", HttpStatus.OK);
+        return new ResponseEntity<>("User " + loginDto.getUsername() + "signed in successfully", HttpStatus.OK);
     }
 }
