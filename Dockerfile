@@ -43,5 +43,5 @@ COPY --from=build /app/build/libs/*.jar app.jar
 
 # Let Render/Heroku/etc set PORT, fallback to 8080
 EXPOSE 8080
-w
+
 ENTRYPOINT ["java", "-jar", "app.jar"]
