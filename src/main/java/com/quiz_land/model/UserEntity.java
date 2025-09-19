@@ -26,6 +26,7 @@ public class UserEntity {
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
+            name = "users_role",
             joinColumns = @JoinColumn(name = "user_id"), // FK to users
             inverseJoinColumns = @JoinColumn(name = "role_id") // FK to roles
     )
