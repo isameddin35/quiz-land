@@ -24,6 +24,10 @@ public class UserEntity {
 
     private String email;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            joinColumns = @JoinColumn(name = "user_id"), // FK to users
+            inverseJoinColumns = @JoinColumn(name = "role_id") // FK to roles
+    )
     private List<Role> role;
 }
