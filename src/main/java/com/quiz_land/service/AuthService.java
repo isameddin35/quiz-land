@@ -44,7 +44,7 @@ public class AuthService {
 
         userRepository.save(user);
 
-        return new ResponseEntity<>("User " + registerDto.getUsername() + "registered successfully", HttpStatus.OK);
+        return new ResponseEntity<>("User " + registerDto.getUsername() + " registered successfully", HttpStatus.OK);
 
     }
 
