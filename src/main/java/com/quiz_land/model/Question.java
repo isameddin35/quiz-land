@@ -16,12 +16,15 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String text;
+
     @ManyToOne
     @JoinColumn(name = "quiz_id")
     @JsonIgnore
     private Quiz quiz;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderBy("id asc")
     private List<Option> options;
 }
